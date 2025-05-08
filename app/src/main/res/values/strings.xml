@@ -1,15 +1,18 @@
 <resources>
-    <string name="app_name">Business_Care</string>
-
+    <string name="app_name">BusinessCare</string>
     <string name="nfc_not_supported">NFC non supporté sur cet appareil.</string>
     <string name="nfc_disabled">NFC désactivé. Veuillez l\'activer.</string>
-    <string name="nfc_ready">Prêt à scanner/écrire un tag NFC.</string> <string name="nfc_approach_tag">Approchez un tag NFC…</string>
+    <string name="nfc_ready">Prêt à scanner/écrire un tag NFC.</string>
+    <string name="nfc_approach_tag">Approchez un tag NFC…</string>
     <string name="nfc_tag_detected_foreground">Tag NFC détecté (Premier plan) !</string>
     <string name="nfc_error_tag_not_found">Erreur: Tag non trouvé dans l\'intent.</string>
     <string name="nfc_error_not_ndef">Le tag n\'est pas au format NDEF.</string>
     <string name="nfc_error_empty_tag">Le tag est vide ou illisible (NDEF).</string>
-    <string name="nfc_error_io">Erreur de lecture/écriture (IO): %1$s</string> <string name="nfc_error_format">Erreur de Format: %1$s</string>
-    <string name="nfc_error_generic">Erreur inconnue: %1$s</string> <string name="nfc_error_not_ndef_or_formattable">Tag non compatible NDEF (ni formatable).</string> <string name="nfc_channel_name">Notifications NFC</string>
+    <string name="nfc_error_io">Erreur de lecture/écriture (IO): %1$s</string>
+    <string name="nfc_error_format">Erreur de Format: %1$s</string>
+    <string name="nfc_error_generic">Erreur inconnue: %1$s</string>
+    <string name="nfc_error_not_ndef_or_formattable">Tag non compatible NDEF (ni formatable).</string>
+    <string name="nfc_channel_name">Notifications NFC</string>
     <string name="nfc_channel_description">Notifications pour les tags NFC scannés</string>
     <string name="nfc_notification_title">Tag NFC Scanné</string>
     <string name="nfc_notification_permission_missing">Permission d\'afficher les notifications requise.</string>
@@ -17,12 +20,12 @@
     <string name="nfc_empty_tag_content">Tag NFC vide</string>
     <string name="nfc_error_read_generic">Erreur lecture tag: %1$s</string>
     <string name="nfc_error_payload_parse">Erreur décodage Payload: %1$s</string>
-
     <string name="nfc_write_success">Message écrit avec succès!</string>
     <string name="nfc_write_format_success">Tag formaté et message écrit!</string>
     <string name="nfc_write_error_tag_lost">Tag perdu. Réessayez.</string>
     <string name="nfc_write_error_read_only">Tag non modifiable.</string>
-    <string name="nfc_write_error_no_space">Espace insuffisant (%1$d > %2$d).</string> <string name="nfc_write_error_io">Erreur écriture (IO): %1$s</string>
+    <string name="nfc_write_error_no_space">Espace insuffisant (%1$d > %2$d).</string>
+    <string name="nfc_write_error_io">Erreur écriture (IO): %1$s</string>
     <string name="nfc_write_error_format">Erreur écriture (Format): %1$s</string>
     <string name="nfc_write_error_unknown">Erreur inconnue écriture: %1$s</string>
     <string name="nfc_format_error_io">Erreur formatage (IO): %1$s</string>
@@ -34,4 +37,98 @@
     <string name="nfc_status_read_mode">Mode Lecture activé. Approchez un tag.</string>
     <string name="nfc_status_write_mode">Mode Écriture activé. Entrez du texte et approchez un tag.</string>
     <string name="nfc_write_empty_warning">Veuillez entrer du texte à écrire.</string>
+    <string name="settings_title">Paramètres</string>
+    <string name="settings_appearance">Apparence</string>
+    <string name="settings_theme">Mode sombre</string>
+    <string name="settings_language">Langue</string>
+    <string name="settings_info">Informations</string>
+    <string name="settings_about">À propos</string>
+    <string name="settings_account">Compte</string>
+    <string name="settings_logout">Déconnexion</string>
+    <string name="app_version">Version %s</string>
+    <string name="app_version_format">Version %s</string>
+
+    <string name="action_cancel">Annuler</string>
+    <string name="action_reregister">Se réinscrire</string>
+    <string name="action_details">Détails</string>
+    <string name="already_cancelled">Ce rendez-vous est déjà annulé.</string>
+    <string name="manage_booking">Gérer</string>
+    <string name="confirm_button_text">Confirmer</string>
+
+    <string name="select_language">Sélectionner une langue</string>
+    <string name="language_french">Français</string>
+    <string name="language_english">English</string>
+    <string name="language_spanish">Español</string>
+    <string name="language_german">Deutsch</string>
+    <string name="about_title">À propos</string>
+    <string name="about_description">Business Care est une application conçue pour vous aider à gérer vos activités professionnelles efficacement. Planifiez vos rendez-vous, organisez vos services et bien plus encore.</string>
+    <string name="copyright_text">© 2023 Business Care. Tous droits réservés.</string>
+
+    <string name="theme_icon_description">Icône de thème</string>
+    <string name="language_icon_description">Icône de langue</string>
+    <string name="about_icon_description">Icône d\'information</string>
+    <string name="logout_icon_description">Icône de déconnexion</string>
+    <string name="arrow_icon_description">Icône de flèche</string>
+    <string name="app_logo_description">Logo de l\'application</string>
+
+    <string name="schedule_title_toolbar">Mon Planning</string>
+    <string name="toast_view_details_for">Affichage détails pour : %1$s</string>
+    <string name="toast_confirm_action_for">Action \'Confirmer\' pour: %1$s</string>
+    <string name="toast_manage_action_for">Action \'Gérer\' pour: %1$s</string>
+    <string name="toast_rebook_preparation_for">Préparation de la réinscription pour : %1$s</string>
+    <string name="calendar_init_error">Erreur initialisation Calendrier</string>
+    <string name="confirm_cancellation_title">Confirmer Annulation</string>
+    <string name="confirm_cancellation_message">Êtes-vous sûr de vouloir annuler cette réservation ?</string>
+    <string name="yes_cancel">Oui, Annuler</string>
+    <string name="no_keep_booking">Non</string>
+    <string name="unknown_error">Erreur inconnue</string>
+    <string name="no_event_for_this_day">Aucun événement pour ce jour.</string>
+    <string name="your_schedule_is_empty">Votre planning est vide.</string>
+    <string name="calendar_layout_error">Erreur: Layout du calendrier incorrect.</string>
+    <string name="calendar_update_error">Erreur mise à jour calendrier: %1$s</string>
+    <string name="booking_cancelled_success">Réservation annulée.</string>
+
+    <string name="booking_item_type_prefix">Rendez-vous: %1$s</string>
+    <string name="default_booking_title">Rendez-vous</string>
+    <string name="location_not_specified">Non spécifié</string>
+    <string name="default_client_name">Client</string>
+    <string name="time_remaining_minutes">Dans %1$dmin</string>
+    <string name="time_remaining_hours">Dans %1$dh</string>
+    <string name="client_with_time_remaining">%1$s • %2$s</string>
+
+    <string name="http_error_message">Erreur %1$d: %2$s</string>
+    <string name="network_error_message_schedule">Erreur réseau: Vérifiez la connexion et l\'URL du serveur.</string>
+    <string name="unknown_error_message_schedule">Erreur inconnue: %1$s</string>
+    <string name="cancellation_error_code">Erreur %1$d (%2$s) lors de l\'annulation</string>
+    <string name="cancellation_failed_generic">Annulation échouée</string>
+    <string name="http_error_message_cancellation">Erreur HTTP %1$d: %2$s</string>
+    <string name="network_error_cancellation">Erreur réseau lors de l\'annulation.</string>
+    <string name="unknown_error_cancellation">Erreur inconnue lors de l\'annulation: %1$s</string>
+    <string name="booking_details_title">Détails du Rendez-vous</string>
+    <string name="booking_field_id">ID:</string>
+    <string name="booking_field_date">Date:</string>
+    <string name="booking_field_time">Heure:</string>
+    <string name="booking_field_duration">Durée:</string>
+    <string name="booking_field_status">Statut:</string>
+    <string name="booking_field_service">Service/Type:</string>
+    <string name="booking_field_client">Client:</string>
+    <string name="booking_field_location">Lieu:</string>
+    <string name="booking_field_provider">Prestataire:</string>
+    <string name="booking_field_notes">Notes:</string>
+    <string name="booking_field_created_at">Créé le:</string>
+    <string name="dialog_close_button">Fermer</string>
+    <string name="minutes_format">%d minutes</string>
+    <string name="not_available_short">N/A</string>
+    <string name="manage_booking_dialog_title">Gérer le rendez-vous</string>
+    <string name="manage_booking_option_details">Voir les détails</string>
+    <string name="manage_booking_option_cancel">Annuler ce rendez-vous</string>
+    <string name="dialog_back_button">Retour</string>
+    <string name="rebook_event_success">Réinscription à l\'événement réussie !</string>
+    <string name="rebook_service_not_found_error">Impossible de retrouver le service \"%1$s\" pour la réinscription.</string>
+    <string name="rebook_event_failure_generic">Échec de la réinscription à l\'événement.</string>
+    <string name="rebook_event_http_error">Erreur HTTP %1$d lors de la réinscription: %2$s</string>
+    <string name="rebook_event_network_error">Erreur réseau lors de la réinscription à l\'événement.</string>
+    <string name="rebook_event_unknown_error">Erreur inconnue lors de la réinscription: %1$s</string>
+    <string name="rebooking_attempt_for">Tentative de réinscription pour %s…</string>
+    <string name="redirecting_to_reschedule">Redirection vers le reprogrammation de %s…</string>
 </resources>

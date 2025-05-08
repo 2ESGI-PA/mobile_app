@@ -1,5 +1,22 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources>
-    <style name="Theme.Business_Care" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <style name="Theme.BusinessCare" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorPrimary">@color/primary_purple</item>
+        <item name="colorPrimaryVariant">@color/secondary_purple</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        <!-- Secondary brand color. -->
+        <item name="colorSecondary">@color/accent_pink</item>
+        <item name="colorSecondaryVariant">@color/accent_pink</item>
+        <item name="colorOnSecondary">@android:color/white</item>
+        <!-- Status bar color. -->
+        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <!-- Background colors - using Android's built-in attributes -->
+        <item name="android:colorBackground">@color/very_light_purple</item>
+        <item name="colorSurface">@android:color/white</item>
+        <item name="colorOnSurface">@color/secondary_purple</item>
+        <!-- Outline and divider colors -->
+        <item name="colorOutline">@color/light_purple</item>
+    </style>
+
+    <style name="Theme.BusinessCare.Launcher" parent="Theme.BusinessCare">
     </style>
 </resources>
