@@ -62,7 +62,7 @@
     <string name="language_german">Alemán</string>
     <string name="about_title">Acerca de</string>
     <string name="about_description">Business Care es una aplicación diseñada para ayudarle a gestionar sus actividades profesionales de manera eficiente. Planifique sus citas, organice sus servicios y mucho más.</string>
-    <string name="copyright_text">© 2023 Business Care. Todos los derechos reservados.</string>
+    <string name="copyright_text">© 2025 Business Care. Todos los derechos reservados.</string>
 
     <string name="theme_icon_description">Icono de tema</string>
     <string name="language_icon_description">Icono de idioma</string>
@@ -70,7 +70,7 @@
     <string name="logout_icon_description">Icono de cerrar sesión</string>
     <string name="arrow_icon_description">Icono de flecha</string>
     <string name="app_logo_description">Logo de la aplicación</string>
-
+    <string name="confirm">Confirmer</string>
     <string name="schedule_title_toolbar">Mi Horario</string>
     <string name="toast_view_details_for">Viendo detalles de: %1$s</string>
     <string name="toast_confirm_action_for">Acción \'Confirmar\' para: %1$s</string>
