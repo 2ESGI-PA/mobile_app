@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:background="@android:color/white">
 
-    <!-- Header Section -->
     <View
         android:id="@+id/headerBackground"
         android:layout_width="match_parent"
@@ -32,8 +32,7 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="sans-serif-medium"
-        android:text="Notes de réservation"
-        android:textColor="@android:color/white"
+        android:text="@string/booking_notes_title"  android:textColor="@android:color/white"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
@@ -41,18 +40,45 @@
         app:layout_constraintStart_toEndOf="@+id/ivNotesIcon"
         app:layout_constraintTop_toTopOf="@+id/headerBackground" />
 
-    <!-- Content Section -->
+    <TextView
+        android:id="@+id/tvDialogItemTitle"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="24dp"
+        android:textColor="@color/secondary_purple"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/headerBackground"
+        tools:text="Nom du Service/Événement Très Long" />
+
+    <TextView
+        android:id="@+id/tvDialogItemDateTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="24dp"
+        android:textColor="@color/muted_green"
+        android:textSize="14sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvDialogItemTitle"
+        tools:text="Le 10 septembre 2025 à 14:00" />
+
     <TextView
         android:id="@+id/tvNotesDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
-        android:text="Ajoutez des informations supplémentaires concernant votre réservation."
-        android:textColor="@color/secondary_purple"
+        android:text="@string/booking_notes_description" android:textColor="@color/secondary_purple"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/headerBackground" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDialogItemDateTime" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilBookingNotes"
@@ -62,8 +88,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:hint="Ajouter des notes (optionnel)"
-        app:boxStrokeColor="@color/primary_purple"
+        android:hint="@string/booking_notes_hint" app:boxStrokeColor="@color/primary_purple"
         app:counterEnabled="true"
         app:counterMaxLength="200"
         app:counterTextColor="@color/muted_green"
@@ -82,7 +107,6 @@
 
     </com.google.android.material.textfield.TextInputLayout>
 
-    <!-- Buttons Section -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -101,16 +125,14 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="Annuler"
-            android:textColor="@color/secondary_purple" />
+            android:text="@string/cancel" android:textColor="@color/secondary_purple" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveNotes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="@color/accent_pink"
-            android:text="Enregistrer"
-            android:textColor="@android:color/white"
+            android:text="@string/save" android:textColor="@android:color/white"
             app:cornerRadius="8dp" />
     </LinearLayout>
 

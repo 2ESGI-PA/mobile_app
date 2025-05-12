@@ -47,14 +47,26 @@
     <string name="settings_logout">Déconnexion</string>
     <string name="app_version">Version %s</string>
     <string name="app_version_format">Version %s</string>
-
+    <string name="booking_notes_title">Booking Notes</string>
+    <string name="booking_notes_description">Add supplementary information concerning your booking.</string>
+    <string name="booking_notes_hint">Add notes (optional)</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="no_services_available">No service or event available.</string>
+    <string name="error_loading_list">Error loading list: %s</string> <string name="booking_success">Booking created successfully!</string>
+    <string name="booking_error">Booking Error: %s</string> <string name="date_time_format">%1$s at %2$s</string>
     <string name="action_cancel">Annuler</string>
     <string name="action_reregister">Se réinscrire</string>
     <string name="action_details">Détails</string>
     <string name="already_cancelled">Ce rendez-vous est déjà annulé.</string>
     <string name="manage_booking">Gérer</string>
     <string name="confirm_button_text">Confirmer</string>
-
+    <string name="schedule_widget_title">Mon Planning</string>
+    <string name="schedule_widget_description">Affiche vos prochains rendez-vous et tâches.</string>
+    <string name="schedule_widget_empty">Aucun événement programmé pour le moment.</string>
+    <string name="widget_item_load_error">Erreur de chargement</string>
+    <string name="widget_unknown_error">Erreur inconnue</string>
+    <string name="widget_loading_data">Chargement des données…</string>
     <string name="select_language">Sélectionner une langue</string>
     <string name="language_french">Français</string>
     <string name="language_english">English</string>

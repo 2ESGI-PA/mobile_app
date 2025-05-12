@@ -10,7 +10,7 @@ import java.util.concurrent.TimeUnit
 
 object ApiClient {
 
-    private const val BASE_URL = "http://192.168.0.41:3000/api/"
+    private const val BASE_URL = "http://192.168.0.41:3000/"
 
     fun create(context: Context): ApiService {
         val tokenManager = TokenManager(context)

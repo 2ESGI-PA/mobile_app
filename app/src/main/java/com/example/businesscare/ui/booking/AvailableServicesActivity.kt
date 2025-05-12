@@ -5,7 +5,9 @@ import android.app.TimePickerDialog
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
+import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.appcompat.app.AlertDialog
@@ -17,6 +19,7 @@ import com.example.businesscare.databinding.ActivityAvailableServicesBinding
 import com.example.businesscare.ui.schedule.DataStatus
 import java.util.Calendar
 import java.util.Date
+import android.text.format.DateFormat
 
 class AvailableServicesActivity : AppCompatActivity() {
 
@@ -56,21 +59,19 @@ class AvailableServicesActivity : AppCompatActivity() {
             when (status) {
                 DataStatus.ERROR -> {
                     binding.tvAvailableMessage.visibility = View.VISIBLE
-                    binding.tvAvailableMessage.text = viewModel.listErrorMessage.value ?: "Erreur inconnue"
+                    binding.tvAvailableMessage.text = viewModel.listErrorMessage.value ?: getString(R.string.unknown_error)
                 }
                 DataStatus.EMPTY -> {
                     binding.tvAvailableMessage.visibility = View.VISIBLE
-                    binding.tvAvailableMessage.text = "Aucun service ou événement disponible."
+                    binding.tvAvailableMessage.text = getString(R.string.no_services_available)
                 }
                 else -> {
-
                 }
             }
         }
         viewModel.listErrorMessage.observe(this) { msg ->
-            msg?.let { Toast.makeText(this, "Erreur chargement liste: $it", Toast.LENGTH_SHORT).show() }
+            msg?.let { Toast.makeText(this, getString(R.string.error_loading_list, it), Toast.LENGTH_SHORT).show() }
         }
-
 
         viewModel.bookingStatus.observe(this) { status ->
             if (status == BookingStatusState.LOADING) {
@@ -84,14 +85,14 @@ class AvailableServicesActivity : AppCompatActivity() {
             }
 
             if (status == BookingStatusState.SUCCESS) {
-                Toast.makeText(this, "Réservation créée avec succès!", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.booking_success), Toast.LENGTH_LONG).show()
                 viewModel.resetBookingStatus()
                 finish()
             }
         }
         viewModel.bookingErrorMessage.observe(this) { errorMsg ->
             errorMsg?.let {
-                Toast.makeText(this, "Erreur Réservation: $it", Toast.LENGTH_LONG).show()
+                Toast.makeText(this, getString(R.string.booking_error, it), Toast.LENGTH_LONG).show()
                 viewModel.resetBookingStatus()
             }
         }
@@ -99,23 +100,10 @@ class AvailableServicesActivity : AppCompatActivity() {
 
     private fun showBookingDialog(item: ServiceSummaryDto) {
         val calendar = Calendar.getInstance()
-        val notesView = LayoutInflater.from(this).inflate(R.layout.dialog_booking_notes, null)
-        val etNotes = notesView.findViewById<EditText>(R.id.etBookingNotes)
 
         if (item.isEvent && item.startDate != null) {
             calendar.time = item.startDate
-
-            AlertDialog.Builder(this)
-                .setTitle("Confirmer participation ?")
-                .setMessage("Participer à \"${item.title}\"\nLe ${android.text.format.DateFormat.getLongDateFormat(this).format(calendar.time)} à ${android.text.format.DateFormat.getTimeFormat(this).format(calendar.time)} ?")
-                .setView(notesView)
-                .setPositiveButton("Confirmer") { _, _ ->
-                    val notes = etNotes.text.toString().trim()
-                    viewModel.createBooking(item, calendar.timeInMillis, if (notes.isEmpty()) null else notes)
-                }
-                .setNegativeButton("Annuler", null)
-                .show()
-
+            showCustomBookingDialog(item, calendar.timeInMillis)
         } else {
             calendar.add(Calendar.DAY_OF_YEAR, 1)
             calendar.set(Calendar.HOUR_OF_DAY, 10)
@@ -123,36 +111,60 @@ class AvailableServicesActivity : AppCompatActivity() {
             calendar.set(Calendar.SECOND, 0)
             calendar.set(Calendar.MILLISECOND, 0)
 
-            val dateSetListener = DatePickerDialog.OnDateSetListener { _, year, monthOfYear, dayOfMonth ->
-                calendar.set(Calendar.YEAR, year)
-                calendar.set(Calendar.MONTH, monthOfYear)
-                calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
+            val datePickerDialog = DatePickerDialog(this,
+                { _, year, monthOfYear, dayOfMonth ->
+                    calendar.set(Calendar.YEAR, year)
+                    calendar.set(Calendar.MONTH, monthOfYear)
+                    calendar.set(Calendar.DAY_OF_MONTH, dayOfMonth)
 
-                TimePickerDialog(this,
-                    { _, hourOfDay, minute ->
-                        calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
-                        calendar.set(Calendar.MINUTE, minute)
-
-                        AlertDialog.Builder(this)
-                            .setTitle("Confirmer réservation ?")
-                            .setMessage("Réserver \"${item.title}\"\nLe ${android.text.format.DateFormat.getLongDateFormat(this).format(calendar.time)} à ${android.text.format.DateFormat.getTimeFormat(this).format(calendar.time)} ?")
-                            .setView(notesView)
-                            .setPositiveButton("Réserver") { _, _ ->
-                                val notes = etNotes.text.toString().trim()
-                                viewModel.createBooking(item, calendar.timeInMillis, if (notes.isEmpty()) null else notes)
-                            }
-                            .setNegativeButton("Annuler", null)
-                            .show()
-
-                    }, calendar.get(Calendar.HOUR_OF_DAY), calendar.get(Calendar.MINUTE), true
-                ).show()
-            }
-
-            DatePickerDialog(this, dateSetListener,
+                    TimePickerDialog(this,
+                        { _, hourOfDay, minute ->
+                            calendar.set(Calendar.HOUR_OF_DAY, hourOfDay)
+                            calendar.set(Calendar.MINUTE, minute)
+                            showCustomBookingDialog(item, calendar.timeInMillis)
+                        },
+                        calendar.get(Calendar.HOUR_OF_DAY),
+                        calendar.get(Calendar.MINUTE),
+                        DateFormat.is24HourFormat(this)
+                    ).show()
+                },
                 calendar.get(Calendar.YEAR),
                 calendar.get(Calendar.MONTH),
                 calendar.get(Calendar.DAY_OF_MONTH)
-            ).show()
+            )
+            datePickerDialog.datePicker.minDate = System.currentTimeMillis()
+            datePickerDialog.show()
         }
+    }
+
+    private fun showCustomBookingDialog(item: ServiceSummaryDto, selectedTimestamp: Long) {
+        val dialogView = LayoutInflater.from(this).inflate(R.layout.dialog_booking_notes, null)
+        val tvItemTitle = dialogView.findViewById<TextView>(R.id.tvDialogItemTitle)
+        val tvItemDateTime = dialogView.findViewById<TextView>(R.id.tvDialogItemDateTime)
+        val etNotes = dialogView.findViewById<EditText>(R.id.etBookingNotes)
+        val btnSave = dialogView.findViewById<Button>(R.id.btnSaveNotes)
+        val btnCancel = dialogView.findViewById<Button>(R.id.btnCancelNotes)
+
+        val builder = AlertDialog.Builder(this)
+        builder.setView(dialogView)
+        val dialog = builder.create()
+
+        tvItemTitle.text = item.title
+        val dateTimeCalendar = Calendar.getInstance().apply { timeInMillis = selectedTimestamp }
+        val dateString = DateFormat.getLongDateFormat(this).format(dateTimeCalendar.time)
+        val timeString = DateFormat.getTimeFormat(this).format(dateTimeCalendar.time)
+        tvItemDateTime.text = getString(R.string.date_time_format, dateString, timeString)
+
+        btnSave.setOnClickListener {
+            val notes = etNotes.text.toString().trim()
+            viewModel.createBooking(item, selectedTimestamp, if (notes.isEmpty()) null else notes)
+            dialog.dismiss()
+        }
+
+        btnCancel.setOnClickListener {
+            dialog.dismiss()
+        }
+
+        dialog.show()
     }
 }

@@ -95,7 +95,16 @@
     <string name="time_remaining_minutes">In %1$dmin</string>
     <string name="time_remaining_hours">In %1$dh</string>
     <string name="client_with_time_remaining">%1$s • %2$s</string>
-
+    <string name="booking_notes_title">Booking Notes</string>
+    <string name="booking_notes_description">Add supplementary information concerning your booking.</string>
+    <string name="booking_notes_hint">Add notes (optional)</string>
+    <string name="cancel">Cancel</string>
+    <string name="save">Save</string>
+    <string name="schedule_widget_title">Mon Planning</string>
+    <string name="schedule_widget_empty">Aucun rendez-vous</string>
+    <string name="no_services_available">No service or event available.</string>
+    <string name="error_loading_list">Error loading list: %s</string> <string name="booking_success">Booking created successfully!</string>
+    <string name="booking_error">Booking Error: %s</string> <string name="date_time_format">%1$s at %2$s</string>
     <string name="http_error_message">Error %1$d: %2$s</string>
     <string name="network_error_message_schedule">Network error: Check connection and server URL.</string>
     <string name="unknown_error_message_schedule">Unknown error: %1$s</string>
@@ -131,4 +140,8 @@
     <string name="rebook_event_unknown_error">Unknown error during re-registration: %1$s</string>
     <string name="rebooking_attempt_for">Attempting to re-enroll for %s…</string>
     <string name="redirecting_to_reschedule">Redirecting to reschedule %s…</string>
+    <string name="schedule_widget_description">Affiche vos prochains rendez-vous et tâches.</string>
+    <string name="widget_item_load_error">Erreur de chargement</string>
+    <string name="widget_unknown_error">Erreur inconnue</string>
+    <string name="widget_loading_data">Chargement des données…</string>
 </resources>
