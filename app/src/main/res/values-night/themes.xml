@@ -1,19 +1,58 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
+    <!-- Dark application theme. -->
     <style name="Theme.BusinessCare" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <!-- Primary brand color. -->
         <item name="colorPrimary">@color/primary_purple</item>
         <item name="colorPrimaryVariant">@color/secondary_purple</item>
-        <item name="colorOnPrimary">@android:color/white</item>
+        <item name="colorOnPrimary">@color/text_primary</item>
+
         <!-- Secondary brand color. -->
         <item name="colorSecondary">@color/accent_pink</item>
-        <item name="colorSecondaryVariant">@color/accent_pink</item>
-        <item name="colorOnSecondary">@android:color/white</item>
+        <item name="colorSecondaryVariant">@color/muted_green</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">@android:color/black</item>
-        <!-- Background colors - using Android's built-in attributes -->
+        <item name="android:statusBarColor">@color/dark_background</item>
+        <item name="android:navigationBarColor">@color/dark_background</item>
+
+        <!-- Background colors. -->
         <item name="android:colorBackground">@color/dark_background</item>
         <item name="colorSurface">@color/dark_surface</item>
-        <item name="colorOnSurface">@color/very_light_purple</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOutline">@color/light_purple</item>
+
+        <!-- Text colors. -->
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+
+        <!-- Error colors. -->
+        <item name="colorError">@color/error</item>
+        <item name="colorOnError">@color/text_primary</item>
+        
+        <item name="materialCardViewStyle">@style/Widget.BusinessCare.CardView</item>
+        <item name="bottomNavigationStyle">@style/Widget.BusinessCare.BottomNavigation</item>
+        <item name="switchStyle">@style/Widget.BusinessCare.Switch</item>
+    </style>
+
+    <style name="Widget.BusinessCare.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">@color/dark_surface</item>
+        <item name="cardElevation">2dp</item>
+        <item name="strokeColor">@color/dark_outline</item>
+        <item name="strokeWidth">0.5dp</item>
+    </style>
+
+    <style name="Widget.BusinessCare.BottomNavigation" parent="Widget.MaterialComponents.BottomNavigationView">
+        <item name="backgroundTint">@color/dark_surface</item>
+        <item name="itemIconTint">@color/primary_purple</item>
+        <item name="itemTextColor">@color/primary_purple</item>
+    </style>
+
+    <style name="Widget.BusinessCare.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="thumbTint">@color/primary_purple</item>
+        <item name="trackTint">@color/light_purple</item>
+    </style>
+
+    <style name="Theme.BusinessCare.Launcher" parent="Theme.BusinessCare">
     </style>
 </resources>

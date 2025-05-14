@@ -4,35 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.booking.AvailableServicesActivity"> <androidx.recyclerview.widget.RecyclerView
-    android:id="@+id/rvAvailableServices"
-    android:layout_width="0dp"
-    android:layout_height="0dp"
-    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-    app:layout_constraintBottom_toBottomOf="parent"
-    app:layout_constraintEnd_toEndOf="parent"
-    app:layout_constraintStart_toStartOf="parent"
-    app:layout_constraintTop_toTopOf="parent"
-    tools:listitem="@layout/item_service_event" /> <TextView
-    android:id="@+id/tvAvailableMessage"
-    android:layout_width="wrap_content"
-    android:layout_height="wrap_content"
-    android:gravity="center"
-    android:padding="16dp"
-    android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-    android:visibility="gone"
-    app:layout_constraintBottom_toBottomOf="@+id/rvAvailableServices"
-    app:layout_constraintEnd_toEndOf="@+id/rvAvailableServices"
-    app:layout_constraintStart_toStartOf="@+id/rvAvailableServices"
-    app:layout_constraintTop_toTopOf="@+id/rvAvailableServices"
-    tools:text="Aucun service ou événement disponible."
-    tools:visibility="gone" />
+    android:background="?android:attr/colorBackground"
+    tools:context=".ui.booking.AvailableServicesActivity">
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rvAvailableServices"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:listitem="@layout/item_service_event" />
+
+    <TextView
+        android:id="@+id/tvAvailableMessage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+        android:textColor="?attr/colorOnSurface"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="@+id/rvAvailableServices"
+        app:layout_constraintEnd_toEndOf="@+id/rvAvailableServices"
+        app:layout_constraintStart_toStartOf="@+id/rvAvailableServices"
+        app:layout_constraintTop_toTopOf="@+id/rvAvailableServices"
+        tools:text="Aucun service ou événement disponible."
+        tools:visibility="gone" />
 
     <ProgressBar
         android:id="@+id/progressBarAvailable"
         style="?android:attr/progressBarStyle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:indeterminateTint="?attr/colorSecondary"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

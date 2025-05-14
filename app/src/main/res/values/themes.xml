@@ -1,22 +1,37 @@
 <resources xmlns:tools="http://schemas.android.com/tools">
-    <style name="Theme.BusinessCare" parent="Theme.MaterialComponents.Light.NoActionBar">
+    <!-- Base application theme -->
+    <style name="Theme.BusinessCare" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <!-- Primary brand color -->
         <item name="colorPrimary">@color/primary_purple</item>
         <item name="colorPrimaryVariant">@color/secondary_purple</item>
-        <item name="colorOnPrimary">@android:color/white</item>
-        <!-- Secondary brand color. -->
+        <item name="colorOnPrimary">@color/white</item>
+
+        <!-- Secondary brand color -->
         <item name="colorSecondary">@color/accent_pink</item>
-        <item name="colorSecondaryVariant">@color/accent_pink</item>
-        <item name="colorOnSecondary">@android:color/white</item>
-        <!-- Status bar color. -->
+        <item name="colorSecondaryVariant">@color/muted_green</item>
+        <item name="colorOnSecondary">@color/white</item>
+
+        <!-- Status bar color -->
         <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
-        <!-- Background colors - using Android's built-in attributes -->
-        <item name="android:colorBackground">@color/very_light_purple</item>
-        <item name="colorSurface">@android:color/white</item>
-        <item name="colorOnSurface">@color/secondary_purple</item>
-        <!-- Outline and divider colors -->
+
+        <!-- Background colors -->
+        <item name="android:colorBackground">@color/white</item>
+        <item name="colorSurface">@color/very_light_purple</item>
+        <item name="colorOnSurface">@color/black</item>
         <item name="colorOutline">@color/light_purple</item>
+
+        <!-- Text colors -->
+        <item name="android:textColorPrimary">@color/black</item>
+        <item name="android:textColorSecondary">@color/secondary_purple</item>
+
+        <!-- Customize your theme here -->
+        <item name="materialCardViewStyle">@style/Widget.BusinessCare.CardView</item>
     </style>
 
-    <style name="Theme.BusinessCare.Launcher" parent="Theme.BusinessCare">
+    <style name="Widget.BusinessCare.CardView" parent="Widget.MaterialComponents.CardView">
+        <item name="cardBackgroundColor">?attr/colorSurface</item>
+    </style>
+
+<style name="Theme.BusinessCare.Launcher" parent="Theme.BusinessCare">
     </style>
 </resources>

@@ -3,7 +3,8 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    android:padding="16dp">
+    android:padding="16dp"
+    android:background="?attr/colorSurface">
 
     <TextView
         android:layout_width="match_parent"
@@ -26,6 +27,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/language_french"
+            android:textColor="?attr/colorOnSurface"
+            android:buttonTint="?attr/colorPrimary"
             android:textSize="16sp" />
 
         <RadioButton
@@ -34,6 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/language_english"
+            android:textColor="?attr/colorOnSurface"
+            android:buttonTint="?attr/colorPrimary"
             android:textSize="16sp" />
 
         <RadioButton
@@ -42,6 +47,8 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="8dp"
             android:text="@string/language_spanish"
+            android:textColor="?attr/colorOnSurface"
+            android:buttonTint="?attr/colorPrimary"
             android:textSize="16sp" />
 
         <RadioButton
@@ -49,6 +56,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/language_german"
+            android:textColor="?attr/colorOnSurface"
+            android:buttonTint="?attr/colorPrimary"
             android:textSize="16sp" />
 
     </RadioGroup>

@@ -5,13 +5,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/very_light_purple"
+    android:background="?android:attr/colorBackground"
     tools:context=".nfc.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/appBarLayout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent">
@@ -21,8 +22,7 @@
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             app:title="NFC Manager"
-            app:titleTextColor="@android:color/white"
-            android:background="@color/primary_purple" />
+            app:titleTextColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Business Care NFC"
-        android:textColor="@color/primary_purple"
+        android:textColor="?attr/colorPrimary"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -47,7 +47,6 @@
         android:layout_marginTop="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toTopOf="@+id/mode_card"
@@ -70,7 +69,7 @@
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
                 android:contentDescription="NFC Icon"
-                app:tint="@color/accent_pink" />
+                app:tint="?attr/colorSecondary" />
 
             <EditText
                 android:id="@+id/nfc_write_edittext"
@@ -82,8 +81,8 @@
                 android:hint="@string/edittext_hint_write_nfc"
                 android:inputType="text"
                 android:padding="12dp"
-                android:textColor="@color/secondary_purple"
-                android:textColorHint="@color/light_purple"
+                android:textColor="?attr/colorOnSurface"
+                android:textColorHint="?attr/colorOutline"
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
@@ -97,7 +96,7 @@
                 android:layout_marginTop="24dp"
                 android:gravity="center"
                 android:textAlignment="center"
-                android:textColor="@color/secondary_purple"
+                android:textColor="?attr/colorOnSurface"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
@@ -112,7 +111,7 @@
                 android:layout_marginTop="16dp"
                 android:indeterminate="true"
                 android:visibility="gone"
-                app:indicatorColor="@color/accent_pink"
+                app:indicatorColor="?attr/colorSecondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toBottomOf="@+id/nfc_content_textview"
@@ -128,7 +127,6 @@
         android:layout_marginStart="24dp"
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
-        app:cardBackgroundColor="@android:color/white"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -147,15 +145,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/primary_purple"
+                android:backgroundTint="?attr/colorPrimary"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
                 android:text="@string/button_read_mode"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/colorOnPrimary"
                 app:cornerRadius="8dp"
                 app:icon="@drawable/ic_read"
                 app:iconGravity="textStart"
-                app:iconTint="@android:color/white" />
+                app:iconTint="?attr/colorOnPrimary" />
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_write_mode"
@@ -163,15 +161,15 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
                 android:layout_weight="1"
-                android:backgroundTint="@color/accent_pink"
+                android:backgroundTint="?attr/colorSecondary"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
                 android:text="@string/button_write_mode"
-                android:textColor="@android:color/white"
+                android:textColor="?attr/colorOnSecondary"
                 app:cornerRadius="8dp"
                 app:icon="@drawable/ic_write"
                 app:iconGravity="textStart"
-                app:iconTint="@android:color/white" />
+                app:iconTint="?attr/colorOnSecondary" />
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 

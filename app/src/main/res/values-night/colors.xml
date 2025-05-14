@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Couleurs de base -->
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+
+    <!-- Palette de couleurs pour le mode sombre -->
+    <color name="primary_purple">#9D6CD9</color>        <!-- Version plus claire du violet primaire -->
+    <color name="secondary_purple">#8A6BA0</color>      <!-- Version plus claire du violet secondaire -->
+    <color name="light_purple">#5D4F6E</color>          <!-- Version plus sombre du violet clair -->
+    <color name="very_light_purple">#2A2533</color>     <!-- Fond sombre avec une teinte violette -->
+    <color name="accent_pink">#E76AE2</color>           <!-- Version plus vive du rose pour contraste -->
+    <color name="muted_green">#7A8C87</color>           <!-- Version plus claire du vert grisé -->
+
+    <!-- Couleurs spécifiques au mode sombre -->
+    <color name="dark_background">#1A1721</color>       <!-- Fond très sombre avec teinte violette -->
+    <color name="dark_surface">#252130</color>          <!-- Surface légèrement plus claire que le fond -->
+    <color name="dark_outline">#413A4D</color>          <!-- Contour visible mais pas trop contrasté -->
+
+    <!-- Couleurs de texte -->
+    <color name="text_primary">#F0E6FF</color>          <!-- Texte principal presque blanc avec teinte violette -->
+    <color name="text_secondary">#B8A8CC</color>        <!-- Texte secondaire en violet clair -->
+    <color name="text_hint">#7A7085</color>             <!-- Texte d'indice en gris-violet -->
+
+    <!-- Couleurs d'état -->
+    <color name="error">#FF6B8E</color>                 <!-- Rouge adouci pour les erreurs -->
+    <color name="success">#7ECBA1</color>               <!-- Vert adouci pour les succès -->
+    <color name="warning">#FFCF85</color>               <!-- Jaune adouci pour les avertissements -->
+    <color name="info">#82B1FF</color>                  <!-- Bleu adouci pour les informations -->
+</resources>

@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@android:color/white">
+    android:background="?attr/colorSurface">
 
     <View
         android:id="@+id/headerBackground"
         android:layout_width="match_parent"
         android:layout_height="64dp"
-        android:background="@color/primary_purple"
+        android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
@@ -23,7 +23,7 @@
         app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/headerBackground"
-        app:tint="@android:color/white" />
+        app:tint="?attr/colorOnPrimary" />
 
     <TextView
         android:id="@+id/tvNotesTitle"
@@ -32,7 +32,8 @@
         android:layout_marginStart="16dp"
         android:layout_marginEnd="24dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/booking_notes_title"  android:textColor="@android:color/white"
+        android:text="@string/booking_notes_title"
+        android:textColor="?attr/colorOnPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
@@ -47,7 +48,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:textColor="@color/secondary_purple"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
@@ -62,7 +63,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="4dp"
         android:layout_marginEnd="24dp"
-        android:textColor="@color/muted_green"
+        android:textColor="?attr/colorOutline"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -76,7 +77,8 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="24dp"
-        android:text="@string/booking_notes_description" android:textColor="@color/secondary_purple"
+        android:text="@string/booking_notes_description"
+        android:textColor="?attr/colorOnSurface"
         android:textSize="14sp"
         app:layout_constraintTop_toBottomOf="@+id/tvDialogItemDateTime" />
 
@@ -88,11 +90,12 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:hint="@string/booking_notes_hint" app:boxStrokeColor="@color/primary_purple"
+        android:hint="@string/booking_notes_hint"
+        app:boxStrokeColor="?attr/colorPrimary"
         app:counterEnabled="true"
         app:counterMaxLength="200"
-        app:counterTextColor="@color/muted_green"
-        app:hintTextColor="@color/primary_purple"
+        app:counterTextColor="?attr/colorOutline"
+        app:hintTextColor="?attr/colorPrimary"
         app:layout_constraintTop_toBottomOf="@+id/tvNotesDescription">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -103,7 +106,7 @@
             android:gravity="top"
             android:inputType="textMultiLine|textCapSentences"
             android:minLines="4"
-            android:textColor="@color/secondary_purple" />
+            android:textColor="?attr/colorOnSurface" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -125,14 +128,16 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginEnd="8dp"
-            android:text="@string/cancel" android:textColor="@color/secondary_purple" />
+            android:text="@string/cancel"
+            android:textColor="?attr/colorPrimaryVariant" />
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnSaveNotes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/accent_pink"
-            android:text="@string/save" android:textColor="@android:color/white"
+            android:backgroundTint="?attr/colorSecondary"
+            android:text="@string/save"
+            android:textColor="?attr/colorOnSecondary"
             app:cornerRadius="8dp" />
     </LinearLayout>
 
