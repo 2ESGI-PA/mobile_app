@@ -5,11 +5,11 @@ plugins {
 }
 
 android {
-    namespace = "com.example.businesscare"
+    namespace = "io.businesscare.app"
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "com.example.businesscare"
+        applicationId = "io.businesscare.app"
         minSdk = 26
         targetSdk = 35
         versionCode = 1

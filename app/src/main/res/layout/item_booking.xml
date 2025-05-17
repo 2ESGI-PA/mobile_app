@@ -16,7 +16,7 @@
         android:padding="16dp">
 
         <TextView
-            android:id="@+id/tvBookingTime"
+            android:id="@+id/text_view_booking_time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/time_background"
@@ -32,7 +32,7 @@
             tools:text="10:00 - 11:00" />
 
         <TextView
-            android:id="@+id/tvBookingTitle"
+            android:id="@+id/text_view_booking_title"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
@@ -41,11 +41,11 @@
             android:textStyle="bold"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBookingTime"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_booking_time"
             tools:text="Consultation avec Dr. Martin" />
 
         <TextView
-            android:id="@+id/tvBookingLocation"
+            android:id="@+id/text_view_booking_location"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -55,11 +55,11 @@
             android:textColor="?attr/colorOutline"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBookingTitle"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_booking_title"
             tools:text="Cabinet 3, Étage 2" />
 
         <TextView
-            android:id="@+id/tvBookingClient"
+            android:id="@+id/text_view_booking_client"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="4dp"
@@ -69,19 +69,19 @@
             android:textColor="?attr/colorOnSurface"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBookingLocation"
+            app:layout_constraintTop_toBottomOf="@+id/text_view_booking_location"
             tools:text="Jean Dupont" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/btnViewDetails"
+            android:id="@+id/button_view_details"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="8dp"
-            android:text="Détails"
+            android:text="@string/button_details"
             android:textColor="?attr/colorPrimary"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/tvBookingClient" />
+            app:layout_constraintTop_toBottomOf="@+id/text_view_booking_client" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

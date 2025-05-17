@@ -9,7 +9,7 @@
     tools:context=".nfc.MainActivity">
 
     <com.google.android.material.appbar.AppBarLayout
-        android:id="@+id/appBarLayout"
+        android:id="@+id/app_bar_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?attr/colorPrimary"
@@ -21,26 +21,26 @@
             android:id="@+id/toolbar_nfc"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
-            app:title="NFC Manager"
+            app:title="@string/nfc_toolbar_title"
             app:titleTextColor="?attr/colorOnPrimary" />
 
     </com.google.android.material.appbar.AppBarLayout>
 
     <TextView
-        android:id="@+id/nfc_title"
+        android:id="@+id/text_view_nfc_page_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Business Care NFC"
+        android:text="@string/nfc_page_header"
         android:textColor="?attr/colorPrimary"
         android:textSize="22sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/appBarLayout" />
+        app:layout_constraintTop_toBottomOf="@id/app_bar_layout" />
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/nfc_card"
+        android:id="@+id/card_nfc_content"
         android:layout_width="0dp"
         android:layout_height="0dp"
         android:layout_marginStart="24dp"
@@ -49,10 +49,10 @@
         android:layout_marginBottom="24dp"
         app:cardCornerRadius="16dp"
         app:cardElevation="8dp"
-        app:layout_constraintBottom_toTopOf="@+id/mode_card"
+        app:layout_constraintBottom_toTopOf="@+id/card_nfc_mode_selection"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/nfc_title">
+        app:layout_constraintTop_toBottomOf="@+id/text_view_nfc_page_title">
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
@@ -60,7 +60,7 @@
             android:padding="16dp">
 
             <ImageView
-                android:id="@+id/nfc_icon"
+                android:id="@+id/image_view_nfc_icon"
                 android:layout_width="80dp"
                 android:layout_height="80dp"
                 android:layout_marginTop="16dp"
@@ -68,11 +68,11 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                android:contentDescription="NFC Icon"
+                android:contentDescription="@string/nfc_icon_content_description"
                 app:tint="?attr/colorSecondary" />
 
             <EditText
-                android:id="@+id/nfc_write_edittext"
+                android:id="@+id/edit_text_nfc_write_content"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
@@ -86,26 +86,25 @@
                 android:visibility="gone"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/nfc_icon"
+                app:layout_constraintTop_toBottomOf="@id/image_view_nfc_icon"
                 tools:visibility="visible" />
 
             <TextView
-                android:id="@+id/nfc_content_textview"
+                android:id="@+id/text_view_nfc_status_content"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
                 android:layout_marginTop="24dp"
                 android:gravity="center"
-                android:textAlignment="center"
                 android:textColor="?attr/colorOnSurface"
                 android:textSize="18sp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nfc_write_edittext"
-                tools:text="Prêt à scanner un tag NFC..." />
+                app:layout_constraintTop_toBottomOf="@+id/edit_text_nfc_write_content"
+                tools:text="@string/nfc_status_ready_to_scan" />
 
             <com.google.android.material.progressindicator.CircularProgressIndicator
-                android:id="@+id/nfc_progress"
+                android:id="@+id/progress_bar_nfc"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
@@ -114,14 +113,14 @@
                 app:indicatorColor="?attr/colorSecondary"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/nfc_content_textview"
+                app:layout_constraintTop_toBottomOf="@+id/text_view_nfc_status_content"
                 tools:visibility="visible" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
     </com.google.android.material.card.MaterialCardView>
 
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/mode_card"
+        android:id="@+id/card_nfc_mode_selection"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -140,7 +139,7 @@
             android:padding="12dp">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_read_mode"
+                android:id="@+id/button_nfc_read_mode"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="8dp"
@@ -156,7 +155,7 @@
                 app:iconTint="?attr/colorOnPrimary" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_write_mode"
+                android:id="@+id/button_nfc_write_mode"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"

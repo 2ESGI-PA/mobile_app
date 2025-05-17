@@ -15,9 +15,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
-        <!-- Category Badge -->
         <TextView
-            android:id="@+id/tvItemCategory"
+            android:id="@+id/text_view_item_category"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/category_badge_background"
@@ -30,16 +29,14 @@
             app:layout_constraintTop_toTopOf="parent"
             tools:text="SERVICE" />
 
-        <!-- Content Container -->
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical"
             android:padding="16dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/tvItemCategory">
+            app:layout_constraintTop_toBottomOf="@id/text_view_item_category">
 
-            <!-- Title with icon -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -47,15 +44,15 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/ivItemIcon"
+                    android:id="@+id/image_view_item_icon"
                     android:layout_width="28dp"
                     android:layout_height="28dp"
-                    android:contentDescription="Service icon"
+                    android:contentDescription="@string/service_item_icon_content_description"
                     android:src="@drawable/ic_service"
                     app:tint="?attr/colorPrimary" />
 
                 <TextView
-                    android:id="@+id/tvItemTitle"
+                    android:id="@+id/text_view_item_title"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="12dp"
@@ -68,9 +65,8 @@
                     tools:text="Titre du Service/Événement" />
             </LinearLayout>
 
-            <!-- Description -->
             <TextView
-                android:id="@+id/tvItemDescription"
+                android:id="@+id/text_view_item_description"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
@@ -80,20 +76,17 @@
                 android:textSize="14sp"
                 tools:text="Ceci est une description détaillée du service. Elle peut être assez longue et contenir plusieurs informations importantes pour le client." />
 
-            <!-- Divider -->
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
                 android:layout_marginVertical="12dp"
                 android:background="?attr/colorOutline" />
 
-            <!-- Details section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal">
 
-                <!-- Provider -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -104,12 +97,12 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:contentDescription="Provider icon"
+                        android:contentDescription="@string/service_item_provider_icon_content_description"
                         android:src="@drawable/ic_person"
                         app:tint="?attr/colorOutline" />
 
                     <TextView
-                        android:id="@+id/tvItemProvider"
+                        android:id="@+id/text_view_item_provider"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -118,7 +111,6 @@
                         tools:text="Dr. Martin" />
                 </LinearLayout>
 
-                <!-- Duration -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -129,12 +121,12 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:contentDescription="Duration icon"
+                        android:contentDescription="@string/service_item_duration_icon_content_description"
                         android:src="@drawable/ic_time"
                         app:tint="?attr/colorOutline" />
 
                     <TextView
-                        android:id="@+id/tvItemDuration"
+                        android:id="@+id/text_view_item_duration"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -143,7 +135,6 @@
                         tools:text="1 heure" />
                 </LinearLayout>
 
-                <!-- Price -->
                 <LinearLayout
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
@@ -154,12 +145,12 @@
                     <ImageView
                         android:layout_width="16dp"
                         android:layout_height="16dp"
-                        android:contentDescription="Price icon"
+                        android:contentDescription="@string/service_item_price_icon_content_description"
                         android:src="@drawable/ic_price"
                         app:tint="?attr/colorSecondary" />
 
                     <TextView
-                        android:id="@+id/tvItemPrice"
+                        android:id="@+id/text_view_item_price"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="4dp"
@@ -170,14 +161,13 @@
                 </LinearLayout>
             </LinearLayout>
 
-            <!-- Book button -->
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/btnBookService"
+                android:id="@+id/button_book_service"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="12dp"
-                android:text="Réserver"
+                android:text="@string/service_item_button_book"
                 android:textColor="?attr/colorPrimary"
                 app:cornerRadius="8dp"
                 app:strokeColor="?attr/colorPrimary" />
