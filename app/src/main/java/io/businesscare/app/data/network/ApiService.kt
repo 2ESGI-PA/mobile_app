@@ -17,15 +17,15 @@ interface ApiService {
     @POST("auth/login")
     suspend fun login(@Body loginRequest: LoginRequest): LoginResponse
 
-    @GET("employee/me/schedule")
+    @GET("employees/schedule")
     suspend fun getSchedule(): List<BookingItem>
 
-    @GET("employee/me/services")
+    @GET("employees/services")
     suspend fun getAvailableServices(): List<ServiceSummaryDto>
 
-    @POST("employee/me/bookings")
-    suspend fun createBooking(@Body bookingRequest: BookingRequestDto): BookingItem
+    @POST("employees/booking/create")
+    suspend fun createBooking(@Body bookingRequest: BookingRequestDto): Response<Void>
 
-    @DELETE("employee/me/bookings/{bookingId}")
-    suspend fun cancelBooking(@Path("bookingId") bookingId: Int): Response<Unit>
+    @DELETE("employees/bookings/{id}")
+    suspend fun cancelBooking(@Path("id") bookingId: Int): Response<Void>
 }

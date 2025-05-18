@@ -4,8 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_marginHorizontal="8dp"
-    android:layout_marginVertical="6dp"
+    android:layout_margin="8dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="3dp"
     app:strokeColor="?attr/colorOutline"
@@ -13,12 +12,41 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <!-- En-tête avec icône et titre -->
+        <ImageView
+            android:id="@+id/iconItemType"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:contentDescription="Type d'item"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:tint="?attr/colorPrimary"
+            tools:src="@drawable/ic_service" />
 
         <TextView
-            android:id="@+id/text_view_item_category"
+            android:id="@+id/textViewItemTitle"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/iconItemType"
+            app:layout_constraintTop_toTopOf="@id/iconItemType"
+            tools:text="Titre de l'élément" />
+
+        <!-- Badge de catégorie -->
+        <TextView
+            android:id="@+id/textViewItemCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:background="@drawable/category_badge_background"
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
@@ -26,17 +54,119 @@
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="SERVICE" />
+            app:layout_constraintTop_toBottomOf="@id/textViewItemTitle"
+            tools:text="CATÉGORIE" />
 
+        <!-- Description -->
+        <TextView
+            android:id="@+id/textViewItemDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:ellipsize="end"
+            android:maxLines="3"
+            android:textColor="?attr/colorOnSurface"
+            android:textSize="14sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/textViewItemCategory"
+            tools:text="Description détaillée de l'élément qui peut être assez longue et contenir plusieurs informations importantes." />
+
+        <!-- Séparateur -->
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="16dp"
+            android:background="?attr/colorOutline"
+            app:layout_constraintTop_toBottomOf="@id/textViewItemDescription" />
+
+        <!-- Informations détaillées -->
         <LinearLayout
+            android:id="@+id/detailsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
             android:orientation="vertical"
-            android:padding="16dp"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/text_view_item_category">
+            app:layout_constraintTop_toBottomOf="@id/divider">
 
+            <!-- Prestataire -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="Prestataire"
+                    android:src="@drawable/ic_person"
+                    app:tint="?attr/colorPrimary" />
+
+                <TextView
+                    android:id="@+id/textViewProviderName"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="?attr/colorOnSurface"
+                    android:textSize="14sp"
+                    tools:text="Dr. Martin" />
+            </LinearLayout>
+
+            <!-- Prix -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="Prix"
+                    android:src="@drawable/ic_price"
+                    app:tint="?attr/colorSecondary" />
+
+                <TextView
+                    android:id="@+id/textViewItemPrice"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="?attr/colorSecondary"
+                    android:textSize="14sp"
+                    android:textStyle="bold"
+                    tools:text="50€" />
+            </LinearLayout>
+
+            <!-- Durée -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="Durée"
+                    android:src="@drawable/ic_time"
+                    app:tint="?attr/colorOutline" />
+
+                <TextView
+                    android:id="@+id/textViewItemDuration"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:textColor="?attr/colorOutline"
+                    android:textSize="14sp"
+                    tools:text="1 heure" />
+            </LinearLayout>
+
+            <!-- Date et heure -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -44,133 +174,22 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/image_view_item_icon"
-                    android:layout_width="28dp"
-                    android:layout_height="28dp"
-                    android:contentDescription="@string/service_item_icon_content_description"
-                    android:src="@drawable/ic_service"
-                    app:tint="?attr/colorPrimary" />
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="Date et heure"
+                    android:src="@drawable/ic_calendar"
+                    app:tint="?attr/colorOutline" />
 
                 <TextView
-                    android:id="@+id/text_view_item_title"
-                    android:layout_width="0dp"
+                    android:id="@+id/textViewItemDateTime"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="12dp"
-                    android:layout_weight="1"
-                    android:ellipsize="end"
-                    android:maxLines="2"
-                    android:textColor="?attr/colorOnSurface"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    tools:text="Titre du Service/Événement" />
+                    android:layout_marginStart="8dp"
+                    android:textColor="?attr/colorOutline"
+                    android:textSize="14sp"
+                    tools:text="10 septembre 2025 à 14:00" />
             </LinearLayout>
-
-            <TextView
-                android:id="@+id/text_view_item_description"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:ellipsize="end"
-                android:maxLines="3"
-                android:textColor="?attr/colorOnSurface"
-                android:textSize="14sp"
-                tools:text="Ceci est une description détaillée du service. Elle peut être assez longue et contenir plusieurs informations importantes pour le client." />
-
-            <View
-                android:layout_width="match_parent"
-                android:layout_height="1dp"
-                android:layout_marginVertical="12dp"
-                android:background="?attr/colorOutline" />
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="horizontal">
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:contentDescription="@string/service_item_provider_icon_content_description"
-                        android:src="@drawable/ic_person"
-                        app:tint="?attr/colorOutline" />
-
-                    <TextView
-                        android:id="@+id/text_view_item_provider"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:textColor="?attr/colorOutline"
-                        android:textSize="12sp"
-                        tools:text="Dr. Martin" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:contentDescription="@string/service_item_duration_icon_content_description"
-                        android:src="@drawable/ic_time"
-                        app:tint="?attr/colorOutline" />
-
-                    <TextView
-                        android:id="@+id/text_view_item_duration"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:textColor="?attr/colorOutline"
-                        android:textSize="12sp"
-                        tools:text="1 heure" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="16dp"
-                        android:layout_height="16dp"
-                        android:contentDescription="@string/service_item_price_icon_content_description"
-                        android:src="@drawable/ic_price"
-                        app:tint="?attr/colorSecondary" />
-
-                    <TextView
-                        android:id="@+id/text_view_item_price"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="4dp"
-                        android:textColor="?attr/colorSecondary"
-                        android:textSize="14sp"
-                        android:textStyle="bold"
-                        tools:text="50€" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_book_service"
-                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:text="@string/service_item_button_book"
-                android:textColor="?attr/colorPrimary"
-                app:cornerRadius="8dp"
-                app:strokeColor="?attr/colorPrimary" />
         </LinearLayout>
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

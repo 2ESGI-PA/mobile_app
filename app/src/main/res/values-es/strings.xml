@@ -17,7 +17,29 @@
     <string name="login_error_email_password_required">Correo electrónico y contraseña requeridos.</string>
     <string name="login_logo_content_description">Logotipo de Business Care</string>
     <string name="login_footer_copyright">© 2025 BusinessCare. Todos los derechos reservados.</string>
-
+    <string name="error_user_id_not_found">ID utilisateur non trouvé. Veuillez vous reconnecter.</string>
+    <string name="error_provider_id_missing_for_service">ID du prestataire manquant pour le service : %s</string>
+    <string name="error_cannot_book_item_not_service">Cet article ne peut pas être réservé comme un service.</string>
+    <string name="email_password_required">L\'e-mail et le mot de passe sont requis.</string>
+    <string name="login_successful_role">Connecté en tant que : %s</string>
+    <string name="login_failed_generic">Échec de la connexion. Veuillez réessayer.</string>
+    <string name="login_failed_unauthorized">Identifiants incorrects.</string>
+    <string name="network_error_login">Erreur réseau. Veuillez vérifier votre connexion et réessayer.</string>
+    <string name="unknown_error_login">Une erreur inconnue est survenue lors de la connexion : %s</string>
+    <string name="logged_out">Vous avez été déconnecté.</string>
+    <string name="network_error_message_services">Network error when fetching services. Please check your connection.</string>
+    <string name="unknown_error_message_services">An unknown error occurred while fetching services: %s</string>
+    <string name="rebook_provider_id_missing_error">Provider ID is missing for service \'%s\' and is required for rebooking.</string>
+    <string name="http_error_booking">Booking failed with HTTP error %1$d: %2$s</string>
+    <string name="network_error_booking">Booking failed due to a network error. Please check your connection.</string>
+    <string name="unknown_error_booking">An unknown error occurred during booking: %s</string>
+    <string name="error_invalid_provider_id">A valid provider ID is required to make a booking. Please select a valid service/event.</string>
+    <string name="error_invalid_provider_id_rebooking">A valid provider ID could not be found for service \'%s\' and is required for rebooking.</string>
+    <string name="error_invalid_employee_id">"ID d'employé non valide ou non trouvé. Veuillez vous reconnecter."</string>
+    <string name="widget_loading_or_empty">Chargement ou vide…</string>
+    <string name="widget_loading">Chargement…</string>
+    <string name="no_description_available">No description available.</string>
+    <string name="price_format">Price: %s</string> <string name="duration_format">%d minutes</string>
     <string name="nfc_toolbar_title">Gestor NFC</string>
     <string name="nfc_page_header">Business Care NFC</string>
     <string name="nfc_icon_content_description">Icono NFC</string>

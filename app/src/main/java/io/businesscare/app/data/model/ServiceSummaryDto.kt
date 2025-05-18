@@ -6,12 +6,16 @@ data class ServiceSummaryDto(
     val id: Int,
     val title: String,
     val description: String?,
-    val price: Double?,
+    val price: String?,
     val realisationTime: String?,
-    val providerName: String?,
-    val category: String,
-    val startDate: Date? = null
-) {
-    val isEvent: Boolean get() = category.equals("Événement", ignoreCase = true)
-    val isService: Boolean get() = category.equals("Service", ignoreCase = true)
-}
+    val isMedical: Boolean?,
+    val isAvailable: Boolean?,
+    val isNegotiable: Boolean?,
+    val isEvent: Boolean = false,
+    val category: String? = null,
+    val startDate: Date? = null,
+    val endDate: Date? = null,
+    val location: String? = null,
+    val maxAttendees: Int? = null,
+    val provider: ProviderNestedDto?
+)

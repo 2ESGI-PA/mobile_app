@@ -16,7 +16,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import io.businesscare.app.R
 import io.businesscare.app.data.model.ServiceSummaryDto
 import io.businesscare.app.databinding.ActivityAvailableServicesBinding
-import io.businesscare.app.ui.schedule.DataStatus 
+import io.businesscare.app.ui.schedule.DataStatus
 import java.util.Calendar
 import android.text.format.DateFormat as AndroidDateFormat
 
@@ -37,7 +37,7 @@ class AvailableServicesActivity : AppCompatActivity() {
 
     private fun setupRecyclerView() {
         servicesAdapter = AvailableServicesAdapter(
-            onItemClicked = { serviceOrEvent: ServiceSummaryDto -> 
+            onItemClicked = { serviceOrEvent: ServiceSummaryDto ->
                 showBookingDialog(serviceOrEvent)
             }
         )
@@ -54,28 +54,28 @@ class AvailableServicesActivity : AppCompatActivity() {
 
         viewModel.listDataStatus.observe(this) { status ->
             binding.progressBarAvailable.visibility = if (status == DataStatus.LOADING) View.VISIBLE else View.GONE
-            binding.tvAvailableMessage.visibility = View.GONE 
-            binding.rvAvailableServices.visibility = if (status == DataStatus.SUCCESS && !viewModel.servicesList.value.isNullOrEmpty()) View.VISIBLE else View.INVISIBLE 
+            binding.tvAvailableMessage.visibility = View.GONE
+            binding.rvAvailableServices.visibility = if (status == DataStatus.SUCCESS && !viewModel.servicesList.value.isNullOrEmpty()) View.VISIBLE else View.INVISIBLE
 
             when (status) {
                 DataStatus.ERROR -> {
-                    binding.tvAvailableMessage.visibility = View.VISIBLE 
-                    binding.tvAvailableMessage.text = viewModel.listErrorMessage.value ?: getString(R.string.unknown_error) 
-                    binding.rvAvailableServices.visibility = View.GONE 
+                    binding.tvAvailableMessage.visibility = View.VISIBLE
+                    binding.tvAvailableMessage.text = viewModel.listErrorMessage.value ?: getString(R.string.unknown_error)
+                    binding.rvAvailableServices.visibility = View.GONE
                 }
                 DataStatus.EMPTY -> {
-                    binding.tvAvailableMessage.visibility = View.VISIBLE 
-                    binding.tvAvailableMessage.text = getString(R.string.no_services_available) 
-                    binding.rvAvailableServices.visibility = View.GONE 
+                    binding.tvAvailableMessage.visibility = View.VISIBLE
+                    binding.tvAvailableMessage.text = getString(R.string.no_services_available)
+                    binding.rvAvailableServices.visibility = View.GONE
                 }
                 DataStatus.SUCCESS -> {
                     if (viewModel.servicesList.value.isNullOrEmpty()){
-                        binding.tvAvailableMessage.visibility = View.VISIBLE 
-                        binding.tvAvailableMessage.text = getString(R.string.no_services_available) 
-                        binding.rvAvailableServices.visibility = View.GONE 
+                        binding.tvAvailableMessage.visibility = View.VISIBLE
+                        binding.tvAvailableMessage.text = getString(R.string.no_services_available)
+                        binding.rvAvailableServices.visibility = View.GONE
                     } else {
-                        binding.tvAvailableMessage.visibility = View.GONE 
-                        binding.rvAvailableServices.visibility = View.VISIBLE 
+                        binding.tvAvailableMessage.visibility = View.GONE
+                        binding.rvAvailableServices.visibility = View.VISIBLE
                     }
                 }
                 else -> {  }

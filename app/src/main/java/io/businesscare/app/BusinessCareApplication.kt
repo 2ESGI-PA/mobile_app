@@ -11,36 +11,36 @@ private const val KEY_THEME_MODE = "theme_mode"
 private const val KEY_LANGUAGE = "language"
 
 class BusinessCareApplication : Application() {
-    
+
     override fun onCreate() {
         super.onCreate()
-
         initializeTheme()
-
         initializeLanguage()
     }
-    
+
     private fun initializeTheme() {
         val settingsPrefs = getSharedPreferences(PREFS_NAME_SETTINGS, Context.MODE_PRIVATE)
         val isDarkMode = settingsPrefs.getBoolean(KEY_THEME_MODE, false)
-        
+
         if (isDarkMode) {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
         } else {
             AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)
         }
     }
-    
+
+    @Suppress("DEPRECATION")
     private fun initializeLanguage() {
         val settingsPrefs = getSharedPreferences(PREFS_NAME_SETTINGS, Context.MODE_PRIVATE)
         val languageCode = settingsPrefs.getString(KEY_LANGUAGE, "fr") ?: "fr"
-        
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
-        
-        val config = Configuration()
-        config.locale = locale
-        
-        resources.updateConfiguration(config, resources.displayMetrics)
+
+        val resources = getApplicationContext().resources
+        val config = Configuration(resources.configuration)
+        config.setLocale(locale)
+        val baseConfig = resources.configuration
+        baseConfig.setLocale(locale)
+        resources.updateConfiguration(baseConfig, resources.displayMetrics)
     }
 }

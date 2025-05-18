@@ -15,19 +15,16 @@ import com.applandeo.materialcalendarview.EventDay
 import com.applandeo.materialcalendarview.listeners.OnDayClickListener
 import io.businesscare.app.R
 import io.businesscare.app.data.model.BookingItem
-import io.businesscare.app.data.model.BookingRequestDto
 import io.businesscare.app.databinding.ActivityScheduleBinding
 import io.businesscare.app.ui.booking.AvailableServicesActivity
 import io.businesscare.app.ui.settings.SettingsActivity
 import java.text.SimpleDateFormat
 import java.util.Date
 import java.util.Locale
-import java.util.TimeZone
 import io.businesscare.app.util.AppConstants
 
 const val EXTRA_SERVICE_TITLE_TO_REBOOK = AppConstants.EXTRA_SERVICE_TITLE_TO_REBOOK
 const val ITEM_TYPE_EVENT_FIXED = AppConstants.ITEM_TYPE_EVENT_FIXED
-
 
 class ScheduleActivity : AppCompatActivity() {
 
@@ -140,20 +137,7 @@ class ScheduleActivity : AppCompatActivity() {
 
                 if (bookingItem.itemType.equals(ITEM_TYPE_EVENT_FIXED, ignoreCase = true)) {
                     Toast.makeText(this, getString(R.string.rebooking_attempt_for, serviceTitleForLookup), Toast.LENGTH_LONG).show()
-
-                    val dateForRequest = bookingItem.bookingDate
-                    val formattedDate = SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.US).apply {
-                        timeZone = TimeZone.getTimeZone("UTC")
-                    }.format(dateForRequest)
-
-
-                    val request = BookingRequestDto(
-                        serviceId = null,
-                        eventId = bookingItem.id,
-                        bookingDate = formattedDate,
-                        notes = bookingItem.notes
-                    )
-                    scheduleViewModel.rebookFixedEvent(request, serviceTitleForLookup)
+                    scheduleViewModel.rebookFixedEvent(bookingItem, serviceTitleForLookup)
                 } else {
                     Toast.makeText(this, getString(R.string.redirecting_to_reschedule, serviceTitleForLookup), Toast.LENGTH_LONG).show()
                     val intent = Intent(this, AvailableServicesActivity::class.java)
@@ -254,8 +238,13 @@ class ScheduleActivity : AppCompatActivity() {
             }
         }
 
-        scheduleViewModel.eventDays.observe(this) { eventDays ->
-            (binding.calendarView as? CalendarView)?.setEvents(eventDays) ?: run {
+        scheduleViewModel.eventDays.observe(this) { calendarDayList ->
+            val eventDaysForCalendar = calendarDayList.mapNotNull { calendarDay ->
+                calendarDay.calendar?.let { cal ->
+                    EventDay(cal, R.drawable.drawable_event_dot)
+                }
+            }
+            (binding.calendarView as? CalendarView)?.setEvents(eventDaysForCalendar) ?: run {
                 Toast.makeText(this, getString(R.string.calendar_layout_error), Toast.LENGTH_SHORT).show()
             }
         }

@@ -1,4 +1,4 @@
-package com.businesscare.app.ui.widget
+package io.businesscare.app.ui.widget
 
 import android.appwidget.AppWidgetManager
 import android.appwidget.AppWidgetProvider

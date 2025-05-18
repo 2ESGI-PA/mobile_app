@@ -28,6 +28,9 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
 
         settingsPrefs = getSharedPreferences(AppConstants.PREFS_NAME_SETTINGS, Context.MODE_PRIVATE)
+        val languageCode = settingsPrefs.getString(AppConstants.KEY_LANGUAGE, null)
+        languageCode?.let { applyAppLanguage(it, false) }
+
 
         binding = ActivitySettingsBinding.inflate(layoutInflater)
         setContentView(binding.root)
@@ -53,13 +56,8 @@ class SettingsActivity : AppCompatActivity() {
         val isDarkMode = settingsPrefs.getBoolean(AppConstants.KEY_THEME_MODE, false)
         binding.switchTheme.isChecked = isDarkMode
 
-        val currentLanguageCode = settingsPrefs.getString(AppConstants.KEY_LANGUAGE, "fr") ?: "fr"
-        binding.textCurrentLanguage.text = when (currentLanguageCode) {
-            "en" -> getString(R.string.language_english)
-            "es" -> getString(R.string.language_spanish)
-            "de" -> getString(R.string.language_german)
-            else -> getString(R.string.language_french)
-        }
+        val currentLanguageCode = settingsPrefs.getString(AppConstants.KEY_LANGUAGE, getDefaultLanguage()) ?: getDefaultLanguage()
+        binding.textCurrentLanguage.text = getLanguageDisplayString(currentLanguageCode)
 
         try {
             val versionName = packageManager.getPackageInfo(packageName, 0).versionName
@@ -68,6 +66,29 @@ class SettingsActivity : AppCompatActivity() {
             binding.textVersion.text = getString(R.string.app_version_format, getString(R.string.not_available_short))
         }
     }
+
+    private fun getDefaultLanguage(): String {
+        val systemLocale = if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            resources.configuration.locales[0]
+        } else {
+            @Suppress("DEPRECATION")
+            resources.configuration.locale
+        }
+        return when (systemLocale.language) {
+            "en", "es", "de" -> systemLocale.language
+            else -> "fr"
+        }
+    }
+    private fun getLanguageDisplayString(languageCode: String): String {
+        return when (languageCode) {
+            "en" -> getString(R.string.language_english)
+            "es" -> getString(R.string.language_spanish)
+            "de" -> getString(R.string.language_german)
+            "fr" -> getString(R.string.language_french)
+            else -> getString(R.string.language_french)
+        }
+    }
+
 
     private fun setupClickListeners() {
         binding.layoutThemeToggle.setOnClickListener {
@@ -107,7 +128,7 @@ class SettingsActivity : AppCompatActivity() {
         val dialogBinding = DialogLanguageSelectionBinding.inflate(layoutInflater)
         dialog.setContentView(dialogBinding.root)
 
-        val currentLanguageCode = settingsPrefs.getString(AppConstants.KEY_LANGUAGE, "fr") ?: "fr"
+        val currentLanguageCode = settingsPrefs.getString(AppConstants.KEY_LANGUAGE, getDefaultLanguage()) ?: getDefaultLanguage()
         when (currentLanguageCode) {
             "en" -> dialogBinding.radioEnglish.isChecked = true
             "es" -> dialogBinding.radioSpanish.isChecked = true
@@ -121,33 +142,34 @@ class SettingsActivity : AppCompatActivity() {
                 R.id.radioSpanish -> "es"
                 R.id.radioGerman -> "de"
                 R.id.radioFrench -> "fr"
-                else -> "fr"
+                else -> getDefaultLanguage()
             }
 
             if (selectedLanguageCode != currentLanguageCode) {
-                setAppLanguage(selectedLanguageCode)
-                dialog.dismiss()
-                recreate()
-            } else {
-                dialog.dismiss()
+                applyAppLanguage(selectedLanguageCode, true)
             }
+            dialog.dismiss()
         }
         dialog.show()
     }
 
-    private fun setAppLanguage(languageCode: String) {
+    private fun applyAppLanguage(languageCode: String, shouldRecreate: Boolean) {
         settingsPrefs.edit().putString(AppConstants.KEY_LANGUAGE, languageCode).apply()
 
         val locale = Locale(languageCode)
         Locale.setDefault(locale)
 
         val config = Configuration(resources.configuration)
-        @Suppress("DEPRECATION")
         config.setLocale(locale)
 
         @Suppress("DEPRECATION")
         baseContext.resources.updateConfiguration(config, baseContext.resources.displayMetrics)
+
+        if (shouldRecreate) {
+            recreate()
+        }
     }
+
 
     private fun performLogout() {
         tokenManager.clear()
@@ -159,22 +181,5 @@ class SettingsActivity : AppCompatActivity() {
         intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK or Intent.FLAG_ACTIVITY_CLEAR_TASK
         startActivity(intent)
         finishAffinity()
-    }
-
-    private fun setLocale(languageCode: String) {
-        val locale = Locale(languageCode)
-        Locale.setDefault(locale)
-
-        val appResources = applicationContext.resources
-        val appConfiguration = Configuration(appResources.configuration)
-        appConfiguration.setLocale(locale)
-        applicationContext.createConfigurationContext(appConfiguration)
-
-        val activityResources = baseContext.resources 
-        val activityConfiguration = Configuration(activityResources.configuration)
-        activityConfiguration.setLocale(locale)
-        activityResources.updateConfiguration(activityConfiguration, activityResources.displayMetrics)
-
-        recreate()
     }
 }
