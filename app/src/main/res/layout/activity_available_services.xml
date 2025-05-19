@@ -7,20 +7,89 @@
     android:background="?android:attr/colorBackground"
     tools:context=".ui.booking.AvailableServicesActivity">
 
+    <HorizontalScrollView
+        android:id="@+id/filterControlsScrollView"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:paddingVertical="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="none">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:paddingHorizontal="16dp"
+            android:gravity="center_vertical">
+
+            <com.google.android.material.chip.ChipGroup
+                android:id="@+id/chipGroupFilterType"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:singleSelection="true"
+                app:selectionRequired="true">
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFilterAll"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_filter_type_all"
+                    android:checked="true"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFilterServices"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_filter_type_service"/>
+
+                <com.google.android.material.chip.Chip
+                    android:id="@+id/chipFilterEvents"
+                    style="@style/Widget.MaterialComponents.Chip.Filter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/label_filter_type_event"/>
+            </com.google.android.material.chip.ChipGroup>
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnFilterDate"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="@string/label_filter_date"
+                app:icon="@drawable/ic_date_range" />
+
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnClearDateFilter"
+                style="@style/Widget.MaterialComponents.Button.TextButton"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/label_clear_filters"
+                android:visibility="gone"
+                app:icon="@drawable/ic_clear" />
+        </LinearLayout>
+    </HorizontalScrollView>
+
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rvAvailableServices"
         android:layout_width="0dp"
         android:layout_height="0dp"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+        app:layout_constraintTop_toBottomOf="@id/filterControlsScrollView"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/item_service_event" />
 
     <TextView
         android:id="@+id/tvAvailableMessage"
-        android:layout_width="wrap_content"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:gravity="center"
         android:padding="16dp"
@@ -31,6 +100,7 @@
         app:layout_constraintEnd_toEndOf="@+id/rvAvailableServices"
         app:layout_constraintStart_toStartOf="@+id/rvAvailableServices"
         app:layout_constraintTop_toTopOf="@+id/rvAvailableServices"
+        android:layout_marginHorizontal="16dp"
         tools:text="Aucun service ou événement disponible."
         tools:visibility="gone" />
 

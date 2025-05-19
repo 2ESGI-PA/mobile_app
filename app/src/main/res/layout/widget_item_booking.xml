@@ -1,26 +1,37 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="horizontal"
-    android:paddingStart="16dp"
-    android:paddingEnd="16dp"
-    android:paddingTop="8dp"
-    android:paddingBottom="8dp"
-    android:gravity="center_vertical">
+    android:orientation="vertical"
+    android:padding="8dp"
+    android:background="?android:attr/colorBackground">
 
     <TextView
-        android:id="@+id/text_view_widget_item_time"
-        android:layout_width="wrap_content"
+        android:id="@+id/tvWidgetItemTitle"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textColor="?attr/colorOnSurfaceVariant" android:textSize="14sp"
-        android:textStyle="bold"/>
+        android:textAppearance="?android:attr/textAppearanceListItemSmall"
+        android:textColor="?android:attr/textColorPrimary"
+        android:textStyle="bold"
+        tools:text="Titre du Rendez-vous" />
 
     <TextView
-        android:id="@+id/text_view_widget_item_title"
-        android:layout_width="0dp"
+        android:id="@+id/tvWidgetItemDateTime"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:layout_marginStart="12dp"
-        android:textColor="?attr/colorOnSurface" android:textSize="14sp" />
+        android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+        android:textColor="?android:attr/textColorSecondary"
+        android:layout_marginTop="4dp"
+        tools:text="19 mai 2025 - 10:00" />
+
+    <TextView
+        android:id="@+id/tvWidgetItemType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAppearance="?android:attr/textAppearanceListItemSecondary"
+        android:textColor="?android:attr/textColorSecondary"
+        android:layout_marginTop="2dp"
+        tools:text="Type: SERVICE" />
+
 </LinearLayout>

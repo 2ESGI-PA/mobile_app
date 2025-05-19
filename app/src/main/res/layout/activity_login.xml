@@ -7,8 +7,9 @@
     android:background="?android:attr/colorBackground"
     tools:context=".ui.login.LoginActivity">
 
+    <!-- Header Section -->
     <View
-        android:id="@+id/header_background"
+        android:id="@+id/headerBackground"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:background="@drawable/login_header_background"
@@ -16,11 +17,11 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/image_view_logo"
+        android:id="@+id/ivLogo"
         android:layout_width="80dp"
         android:layout_height="80dp"
         android:layout_marginTop="48dp"
-        android:contentDescription="@string/login_logo_content_description"
+        android:contentDescription="Business Care Logo"
         android:src="@drawable/ic_business_care_logo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -28,21 +29,22 @@
         app:tint="?attr/colorOnPrimary" />
 
     <TextView
-        android:id="@+id/text_view_login_title"
+        android:id="@+id/tvLoginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-medium"
-        android:text="@string/login_screen_title"
+        android:text="Connexion Business Care"
         android:textColor="?attr/colorOnPrimary"
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_view_logo" />
+        app:layout_constraintTop_toBottomOf="@+id/ivLogo" />
 
+    <!-- Login Card -->
     <com.google.android.material.card.MaterialCardView
-        android:id="@+id/card_login"
+        android:id="@+id/cardLogin"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="24dp"
@@ -51,7 +53,7 @@
         app:cardElevation="8dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_background">
+        app:layout_constraintTop_toBottomOf="@+id/headerBackground">
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -60,18 +62,18 @@
             android:padding="24dp">
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_input_layout_email"
+                android:id="@+id/tilEmail"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:hint="@string/login_hint_email"
+                android:hint="Email"
                 app:boxStrokeColor="?attr/colorPrimary"
                 app:hintTextColor="?attr/colorPrimary"
                 app:startIconDrawable="@drawable/ic_email"
                 app:startIconTint="?attr/colorPrimary">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_text_email"
+                    android:id="@+id/etEmail"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textEmailAddress"
@@ -80,12 +82,12 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <com.google.android.material.textfield.TextInputLayout
-                android:id="@+id/text_input_layout_password"
+                android:id="@+id/tilPassword"
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
-                android:hint="@string/login_hint_password"
+                android:hint="Mot de passe"
                 app:boxStrokeColor="?attr/colorPrimary"
                 app:hintTextColor="?attr/colorPrimary"
                 app:passwordToggleEnabled="true"
@@ -94,7 +96,7 @@
                 app:startIconTint="?attr/colorPrimary">
 
                 <com.google.android.material.textfield.TextInputEditText
-                    android:id="@+id/edit_text_password"
+                    android:id="@+id/etPassword"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textPassword"
@@ -103,28 +105,28 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <CheckBox
-                android:id="@+id/checkbox_remember_me"
+                android:id="@+id/cbRememberMe"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="16dp"
                 android:buttonTint="?attr/colorSecondary"
-                android:text="@string/login_checkbox_remember_me"
+                android:text="Se souvenir de moi"
                 android:textColor="?attr/colorOnSurface" />
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/button_login"
+                android:id="@+id/btnLogin"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="24dp"
                 android:backgroundTint="?attr/colorPrimary"
                 android:paddingTop="12dp"
                 android:paddingBottom="12dp"
-                android:text="@string/login_button_text"
+                android:text="Connexion"
                 android:textColor="?attr/colorOnPrimary"
                 app:cornerRadius="8dp" />
 
             <ProgressBar
-                android:id="@+id/progress_bar_login"
+                android:id="@+id/progressBarLogin"
                 style="?android:attr/progressBarStyle"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -137,12 +139,13 @@
         </LinearLayout>
     </com.google.android.material.card.MaterialCardView>
 
+    <!-- Footer Section -->
     <TextView
-        android:id="@+id/text_view_footer"
+        android:id="@+id/tvFooter"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="24dp"
-        android:text="@string/login_footer_copyright"
+        android:text="© 2025 Business Care. Tous droits réservés."
         android:textColor="?attr/colorPrimaryVariant"
         android:textSize="12sp"
         app:layout_constraintBottom_toBottomOf="parent"

@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp"
+    android:layout_marginHorizontal="8dp"
+    android:layout_marginVertical="6dp"
     app:cardCornerRadius="12dp"
     app:cardElevation="3dp"
     app:strokeColor="?attr/colorOutline"
@@ -12,41 +13,13 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="16dp">
+        android:layout_height="wrap_content">
 
-        <!-- En-tête avec icône et titre -->
-        <ImageView
-            android:id="@+id/iconItemType"
-            android:layout_width="32dp"
-            android:layout_height="32dp"
-            android:contentDescription="Type d'item"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            app:tint="?attr/colorPrimary"
-            tools:src="@drawable/ic_service" />
-
+        <!-- Category Badge -->
         <TextView
-            android:id="@+id/textViewItemTitle"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
-            android:ellipsize="end"
-            android:maxLines="2"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="18sp"
-            android:textStyle="bold"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toEndOf="@id/iconItemType"
-            app:layout_constraintTop_toTopOf="@id/iconItemType"
-            tools:text="Titre de l'élément" />
-
-        <!-- Badge de catégorie -->
-        <TextView
-            android:id="@+id/textViewItemCategory"
+            android:id="@+id/tvItemCategory"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
             android:background="@drawable/category_badge_background"
             android:paddingHorizontal="12dp"
             android:paddingVertical="4dp"
@@ -54,142 +27,160 @@
             android:textSize="12sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewItemTitle"
-            tools:text="CATÉGORIE" />
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="SERVICE" />
 
-        <!-- Description -->
-        <TextView
-            android:id="@+id/textViewItemDescription"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:ellipsize="end"
-            android:maxLines="3"
-            android:textColor="?attr/colorOnSurface"
-            android:textSize="14sp"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/textViewItemCategory"
-            tools:text="Description détaillée de l'élément qui peut être assez longue et contenir plusieurs informations importantes." />
-
-        <!-- Séparateur -->
-        <View
-            android:id="@+id/divider"
-            android:layout_width="match_parent"
-            android:layout_height="1dp"
-            android:layout_marginTop="16dp"
-            android:background="?attr/colorOutline"
-            app:layout_constraintTop_toBottomOf="@id/textViewItemDescription" />
-
-        <!-- Informations détaillées -->
+        <!-- Content Container -->
         <LinearLayout
-            android:id="@+id/detailsContainer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
             android:orientation="vertical"
-            app:layout_constraintTop_toBottomOf="@id/divider">
+            android:padding="16dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tvItemCategory">
 
-            <!-- Prestataire -->
+            <!-- Title with icon -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
                 android:gravity="center_vertical"
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:contentDescription="Prestataire"
-                    android:src="@drawable/ic_person"
+                    android:id="@+id/ivItemIcon"
+                    android:layout_width="28dp"
+                    android:layout_height="28dp"
+                    android:contentDescription="Service icon"
+                    android:src="@drawable/ic_service"
                     app:tint="?attr/colorPrimary" />
 
                 <TextView
-                    android:id="@+id/textViewProviderName"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/tvItemTitle"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:ellipsize="end"
+                    android:maxLines="2"
                     android:textColor="?attr/colorOnSurface"
-                    android:textSize="14sp"
-                    tools:text="Dr. Martin" />
-            </LinearLayout>
-
-            <!-- Prix -->
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:contentDescription="Prix"
-                    android:src="@drawable/ic_price"
-                    app:tint="?attr/colorSecondary" />
-
-                <TextView
-                    android:id="@+id/textViewItemPrice"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="?attr/colorSecondary"
-                    android:textSize="14sp"
+                    android:textSize="18sp"
                     android:textStyle="bold"
-                    tools:text="50€" />
+                    tools:text="Titre du Service/Événement" />
             </LinearLayout>
 
-            <!-- Durée -->
+            <!-- Description -->
+            <TextView
+                android:id="@+id/tvItemDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:ellipsize="end"
+                android:maxLines="3"
+                android:textColor="?attr/colorOnSurface"
+                android:textSize="14sp"
+                tools:text="Ceci est une description détaillée du service. Elle peut être assez longue et contenir plusieurs informations importantes pour le client." />
+
+            <!-- Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="12dp"
+                android:background="?attr/colorOutline" />
+
+            <!-- Details section -->
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="8dp"
-                android:gravity="center_vertical"
                 android:orientation="horizontal">
 
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:contentDescription="Durée"
-                    android:src="@drawable/ic_time"
-                    app:tint="?attr/colorOutline" />
-
-                <TextView
-                    android:id="@+id/textViewItemDuration"
-                    android:layout_width="wrap_content"
+                <!-- Provider -->
+                <LinearLayout
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="?attr/colorOutline"
-                    android:textSize="14sp"
-                    tools:text="1 heure" />
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:contentDescription="Provider icon"
+                        android:src="@drawable/ic_person"
+                        app:tint="?attr/colorOutline" />
+
+                    <TextView
+                        android:id="@+id/tvItemProvider"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textColor="?attr/colorOutline"
+                        android:textSize="12sp"
+                        tools:text="Dr. Martin" />
+                </LinearLayout>
+
+                <!-- Duration -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:contentDescription="Duration icon"
+                        android:src="@drawable/ic_time"
+                        app:tint="?attr/colorOutline" />
+
+                    <TextView
+                        android:id="@+id/tvItemDuration"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textColor="?attr/colorOutline"
+                        android:textSize="12sp"
+                        tools:text="1 heure" />
+                </LinearLayout>
+
+                <!-- Price -->
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:contentDescription="Price icon"
+                        android:src="@drawable/ic_price"
+                        app:tint="?attr/colorSecondary" />
+
+                    <TextView
+                        android:id="@+id/tvItemPrice"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:textColor="?attr/colorSecondary"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        tools:text="50€" />
+                </LinearLayout>
             </LinearLayout>
 
-            <!-- Date et heure -->
-            <LinearLayout
+            <!-- Book button -->
+            <com.google.android.material.button.MaterialButton
+                android:id="@+id/btnBookService"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:gravity="center_vertical"
-                android:orientation="horizontal">
-
-                <ImageView
-                    android:layout_width="18dp"
-                    android:layout_height="18dp"
-                    android:contentDescription="Date et heure"
-                    android:src="@drawable/ic_calendar"
-                    app:tint="?attr/colorOutline" />
-
-                <TextView
-                    android:id="@+id/textViewItemDateTime"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:textColor="?attr/colorOutline"
-                    android:textSize="14sp"
-                    tools:text="10 septembre 2025 à 14:00" />
-            </LinearLayout>
+                android:layout_marginTop="12dp"
+                android:text="Réserver"
+                android:textColor="?attr/colorPrimary"
+                app:cornerRadius="8dp"
+                app:strokeColor="?attr/colorPrimary" />
         </LinearLayout>
-
     </androidx.constraintlayout.widget.ConstraintLayout>
 </com.google.android.material.card.MaterialCardView>

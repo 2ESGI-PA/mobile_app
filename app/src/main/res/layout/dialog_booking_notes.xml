@@ -7,26 +7,26 @@
     android:background="?attr/colorSurface">
 
     <View
-        android:id="@+id/header_background"
+        android:id="@+id/headerBackground"
         android:layout_width="match_parent"
         android:layout_height="64dp"
         android:background="?attr/colorPrimary"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/image_view_notes_icon"
+        android:id="@+id/ivNotesIcon"
         android:layout_width="28dp"
         android:layout_height="28dp"
         android:layout_marginStart="24dp"
-        android:contentDescription="@string/notes_icon_content_description"
+        android:contentDescription="Notes Icon"
         android:src="@drawable/ic_notes"
-        app:layout_constraintBottom_toBottomOf="@+id/header_background"
+        app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/header_background"
+        app:layout_constraintTop_toTopOf="@+id/headerBackground"
         app:tint="?attr/colorOnPrimary" />
 
     <TextView
-        android:id="@+id/text_view_dialog_notes_title"
+        android:id="@+id/tvNotesTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
@@ -36,13 +36,13 @@
         android:textColor="?attr/colorOnPrimary"
         android:textSize="18sp"
         android:textStyle="bold"
-        app:layout_constraintBottom_toBottomOf="@+id/header_background"
+        app:layout_constraintBottom_toBottomOf="@+id/headerBackground"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/image_view_notes_icon"
-        app:layout_constraintTop_toTopOf="@+id/header_background" />
+        app:layout_constraintStart_toEndOf="@+id/ivNotesIcon"
+        app:layout_constraintTop_toTopOf="@+id/headerBackground" />
 
     <TextView
-        android:id="@+id/text_view_dialog_item_title"
+        android:id="@+id/tvDialogItemTitle"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -53,11 +53,11 @@
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/header_background"
+        app:layout_constraintTop_toBottomOf="@+id/headerBackground"
         tools:text="Nom du Service/Événement Très Long" />
 
     <TextView
-        android:id="@+id/text_view_dialog_item_date_time"
+        android:id="@+id/tvDialogItemDateTime"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -67,11 +67,11 @@
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_dialog_item_title"
+        app:layout_constraintTop_toBottomOf="@+id/tvDialogItemTitle"
         tools:text="Le 10 septembre 2025 à 14:00" />
 
     <TextView
-        android:id="@+id/text_view_notes_description"
+        android:id="@+id/tvNotesDescription"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginStart="24dp"
@@ -80,10 +80,10 @@
         android:text="@string/booking_notes_description"
         android:textColor="?attr/colorOnSurface"
         android:textSize="14sp"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_dialog_item_date_time" />
+        app:layout_constraintTop_toBottomOf="@+id/tvDialogItemDateTime" />
 
     <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/text_input_layout_booking_notes"
+        android:id="@+id/tilBookingNotes"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -96,10 +96,10 @@
         app:counterMaxLength="200"
         app:counterTextColor="?attr/colorOutline"
         app:hintTextColor="?attr/colorPrimary"
-        app:layout_constraintTop_toBottomOf="@+id/text_view_notes_description">
+        app:layout_constraintTop_toBottomOf="@+id/tvNotesDescription">
 
         <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/edit_text_booking_notes"
+            android:id="@+id/etBookingNotes"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:autofillHints=""
@@ -120,10 +120,10 @@
         android:gravity="end"
         android:orientation="horizontal"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/text_input_layout_booking_notes">
+        app:layout_constraintTop_toBottomOf="@+id/tilBookingNotes">
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_cancel_notes"
+            android:id="@+id/btnCancelNotes"
             style="@style/Widget.MaterialComponents.Button.TextButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -132,7 +132,7 @@
             android:textColor="?attr/colorPrimaryVariant" />
 
         <com.google.android.material.button.MaterialButton
-            android:id="@+id/button_save_notes"
+            android:id="@+id/btnSaveNotes"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:backgroundTint="?attr/colorSecondary"
